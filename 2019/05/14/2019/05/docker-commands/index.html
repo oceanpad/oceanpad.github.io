@@ -17,7 +17,7 @@
 <meta property="og:description" content="Docker ralated kill&#x2F;create&#x2F;tag commandsContinue updating …">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-05-14T01:42:49.000Z">
-<meta property="article:modified_time" content="2021-06-01T07:59:06.878Z">
+<meta property="article:modified_time" content="2021-06-28T02:37:02.121Z">
 <meta property="article:author" content="ocean">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -117,6 +117,13 @@ ga('send', 'pageview');
 <h3 id="system-image-ralated"><a href="#system-image-ralated" class="headerlink" title="system image ralated"></a>system image ralated</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images                   <span class="comment"># list images</span></span><br><span class="line">docker image ls                 <span class="comment"># list images</span></span><br><span class="line">docker image prune              <span class="comment"># remove unused images</span></span><br></pre></td></tr></table></figure>
 <h3 id="run-bash-command-from-one-running-container"><a href="#run-bash-command-from-one-running-container" class="headerlink" title="run bash command from one running container"></a>run bash command from one running container</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> it DOCKER_NAME /bin/bash</span><br></pre></td></tr></table></figure>
 <h3 id="docker-volumes-ralated"><a href="#docker-volumes-ralated" class="headerlink" title="docker volumes ralated"></a>docker volumes ralated</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume ls                <span class="comment"># list volumes</span></span><br><span class="line">docker volume prune             <span class="comment"># remove all unused volumes</span></span><br></pre></td></tr></table></figure>
+<h3 id="To-display-logs"><a href="#To-display-logs" class="headerlink" title="To display logs:"></a>To display logs:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Copydocker container logs &lt;container&gt;</span><br><span class="line">docker logs &lt;container&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>You can stream the log output using -f (or –follow):</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ocker logs -f &lt;container&gt;</span><br></pre></td></tr></table></figure>
+<p>Type Ctrl+C to exit.</p>
+<p>Most containers generate a lot of entries, so you can use the –tail or –until options to limit the amount. For example, to display only the last 20 log entries:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f --tail 20 &lt;container&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
