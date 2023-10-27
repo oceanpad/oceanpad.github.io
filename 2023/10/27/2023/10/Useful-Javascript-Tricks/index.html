@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>Useful Javascript Tricks | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Here are some JavaScript tricks that can be handy: 1. Destructuring Assignment:12const person &#x3D; &amp;#123; name: &#39;John&#39;, age: 30 &amp;#125;;const &amp;#123; name, age &amp;#125; &#x3D; person;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Useful Javascript Tricks">
+<meta property="og:url" content="http://oceanpad.github.io/2023/10/27/2023/10/Useful-Javascript-Tricks/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="Here are some JavaScript tricks that can be handy: 1. Destructuring Assignment:12const person &#x3D; &amp;#123; name: &#39;John&#39;, age: 30 &amp;#125;;const &amp;#123; name, age &amp;#125; &#x3D; person;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://oceanpad.github.io/resource/2023/10/JLG-mooncake-Fes.png">
+<meta property="article:published_time" content="2023-10-27T01:53:02.000Z">
+<meta property="article:modified_time" content="2023-10-27T02:15:41.015Z">
+<meta property="article:author" content="haiyang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://oceanpad.github.io/resource/2023/10/JLG-mooncake-Fes.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2023/10/Useful-Javascript-Tricks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/" class="article-date">
+  <time datetime="2023-10-27T01:53:02.000Z" itemprop="datePublished">2023-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Useful Javascript Tricks
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resource/2023/10/JLG-mooncake-Fes.png" alt="Photo by me"></p>
+<p>Here are some JavaScript tricks that can be handy:</p>
+<h3 id="1-Destructuring-Assignment"><a href="#1-Destructuring-Assignment" class="headerlink" title="1. Destructuring Assignment:"></a>1. Destructuring Assignment:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123; <span class="attr">name</span>: <span class="string">'John'</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = person;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-Spread-Operator"><a href="#2-Spread-Operator" class="headerlink" title="2. Spread Operator:"></a>2. Spread Operator:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [...arr1, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="3-Ternary-Operator"><a href="#3-Ternary-Operator" class="headerlink" title="3. Ternary Operator:"></a>3. Ternary Operator:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> status = (age &gt;= <span class="number">18</span>) ? <span class="string">'Adult'</span> : <span class="string">'Minor'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="4-Template-Literals"><a href="#4-Template-Literals" class="headerlink" title="4. Template Literals:"></a>4. Template Literals:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'John'</span>;</span><br><span class="line"><span class="keyword">const</span> greeting = <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="5-Arrow-Functions"><a href="#5-Arrow-Functions" class="headerlink" title="5. Arrow Functions:"></a>5. Arrow Functions:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> double = <span class="function">(<span class="params">num</span>) =&gt;</span> num * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="6-Object-Shorthand"><a href="#6-Object-Shorthand" class="headerlink" title="6. Object Shorthand:"></a>6. Object Shorthand:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'John'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123; name, age &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="7-Default-Parameters"><a href="#7-Default-Parameters" class="headerlink" title="7. Default Parameters:"></a>7. Default Parameters:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name = <span class="string">'User'</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-Truthy-and-Falsy-Values"><a href="#8-Truthy-and-Falsy-Values" class="headerlink" title="8. Truthy and Falsy Values:"></a>8. Truthy and Falsy Values:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> truthyExample = <span class="string">'Hello'</span>;</span><br><span class="line"><span class="keyword">const</span> falsyExample = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (truthyExample) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Truthy'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!falsyExample) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Falsy'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-Array-prototype-includes"><a href="#9-Array-prototype-includes" class="headerlink" title="9. Array.prototype.includes():"></a>9. Array.prototype.includes():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> includesThree = numbers.includes(<span class="number">3</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-Array-prototype-find"><a href="#10-Array-prototype-find" class="headerlink" title="10. Array.prototype.find():"></a>10. Array.prototype.find():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'John'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'Jane'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">'Bob'</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> user = users.find(<span class="function"><span class="params">user</span> =&gt;</span> user.id === <span class="number">2</span>); <span class="comment">// &#123; id: 2, name: 'Jane' &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="11-Array-Destructuring"><a href="#11-Array-Destructuring" class="headerlink" title="11. Array Destructuring:"></a>11. Array Destructuring:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">const</span> [firstColor, secondColor] = colors;</span><br></pre></td></tr></table></figure>
+<h3 id="12-Rest-Parameter"><a href="#12-Rest-Parameter" class="headerlink" title="12. Rest Parameter:"></a>12. Rest Parameter:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...numbers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> numbers.reduce(<span class="function">(<span class="params">acc, num</span>) =&gt;</span> acc + num, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="13-Object-Destructuring-with-Default-Values"><a href="#13-Object-Destructuring-with-Default-Values" class="headerlink" title="13. Object Destructuring with Default Values:"></a>13. Object Destructuring with Default Values:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; name = <span class="string">'John'</span>, age = <span class="number">30</span> &#125; = person;</span><br></pre></td></tr></table></figure>
+<h3 id="14-Array-Spread-Operator-for-Function-Arguments"><a href="#14-Array-Spread-Operator-for-Function-Arguments" class="headerlink" title="14. Array Spread Operator for Function Arguments:"></a>14. Array Spread Operator for Function Arguments:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addNumbers</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> sum = addNumbers(...numbers);</span><br></pre></td></tr></table></figure>
+<h3 id="15-Short-circuit-Evaluation-for-Conditional-Logic"><a href="#15-Short-circuit-Evaluation-for-Conditional-Logic" class="headerlink" title="15. Short-circuit Evaluation for Conditional Logic:"></a>15. Short-circuit Evaluation for Conditional Logic:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isLoggedIn = <span class="literal">true</span>;</span><br><span class="line">isLoggedIn &amp;&amp; <span class="built_in">console</span>.log(<span class="string">'User is logged in'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="16-String-prototype-startsWith-and-endsWith"><a href="#16-String-prototype-startsWith-and-endsWith" class="headerlink" title="16. String.prototype.startsWith() and endsWith():"></a>16. String.prototype.startsWith() and endsWith():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'Hello, world'</span>;</span><br><span class="line"><span class="keyword">const</span> startsWithHello = str.startsWith(<span class="string">'Hello'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> endsWithWorld = str.endsWith(<span class="string">'world'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="17-Array-prototype-map"><a href="#17-Array-prototype-map" class="headerlink" title="17. Array.prototype.map():"></a>17. Array.prototype.map():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> squaredNumbers = numbers.map(<span class="function"><span class="params">num</span> =&gt;</span> num ** <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="18-Array-prototype-filter"><a href="#18-Array-prototype-filter" class="headerlink" title="18. Array.prototype.filter():"></a>18. Array.prototype.filter():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> evenNumbers = numbers.filter(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="19-Array-prototype-reduce"><a href="#19-Array-prototype-reduce" class="headerlink" title="19. Array.prototype.reduce():"></a>19. Array.prototype.reduce():</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> sum = numbers.reduce(<span class="function">(<span class="params">acc, num</span>) =&gt;</span> acc + num, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="20-Truthy-and-Falsy-Coalescing-Operator"><a href="#20-Truthy-and-Falsy-Coalescing-Operator" class="headerlink" title="20. Truthy and Falsy Coalescing Operator (??):"></a>20. Truthy and Falsy Coalescing Operator (??):</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">const</span> name = user ?? <span class="string">'Guest'</span>; <span class="comment">// 'Guest'</span></span><br></pre></td></tr></table></figure>
+<h3 id="21-Optional-Chaining"><a href="#21-Optional-Chaining" class="headerlink" title="21. Optional Chaining (?.):"></a>21. Optional Chaining (?.):</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  address: &#123;</span><br><span class="line">    street: <span class="string">'123 Main St'</span>,</span><br><span class="line">    city: <span class="string">'New York'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> city = user?.address?.city; <span class="comment">// 'New York'</span></span><br></pre></td></tr></table></figure>
+<h3 id="22-Async-Await-for-Asynchronous-Operations"><a href="#22-Async-Await-for-Asynchronous-Operations" class="headerlink" title="22. Async/Await for Asynchronous Operations:"></a>22. Async/Await for Asynchronous Operations:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">'https://api.example.com/data'</span>);</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line">  <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2023/10/27/2023/10/Useful-Javascript-Tricks/" data-id="clo7zs8wa0000c01besax8tbn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/29/2023/03/useful-python-tricks/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Useful Python Tricks</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

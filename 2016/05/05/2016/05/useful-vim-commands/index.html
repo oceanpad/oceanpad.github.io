@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>Useful Vim Commands | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在vim保存时获得sudo权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Useful Vim Commands">
+<meta property="og:url" content="http://oceanpad.github.io/2016/05/05/2016/05/useful-vim-commands/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="在vim保存时获得sudo权限">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-05-05T05:41:08.000Z">
+<meta property="article:modified_time" content="2023-10-27T01:48:43.012Z">
+<meta property="article:author" content="haiyang">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/05/useful-vim-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/05/2016/05/useful-vim-commands/" class="article-date">
+  <time datetime="2016-05-05T05:41:08.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Useful Vim Commands
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在vim保存时获得sudo权限"><a href="#在vim保存时获得sudo权限" class="headerlink" title="在vim保存时获得sudo权限"></a>在vim保存时获得sudo权限</h3><a id="more"></a>
+<ul>
+<li><p>在维护线上服务的时候，经常要编辑一些不属于操作用户的文件，就是只有r权限的那种，<br>每次保存都会提示read only。只能先记下来改了什么，然后再退出，然后 sudo vim 再做保存。</p>
+</li>
+<li><p>下面的命令可以不退出vim进程，直接用vim命令获取sudo权限，然后直接保存文件。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure>
+<ul>
+<li>命令:w !{cmd}，让 vim 执行一个外部命令{cmd}，然后把当前缓冲区的内容从 stdin 传入。</li>
+<li>tee 是一个把 stdin 保存到文件的小工具。</li>
+<li>而 %，是vim当中一个只读寄存器的名字，总保存着当前编辑文件的文件路径。</li>
+<li>所以执行这个命令，就相当于从vim外部修改了当前编辑的文件。</li>
+</ul>
+<h3 id="delete-vim-blank-line"><a href="#delete-vim-blank-line" class="headerlink" title="delete vim blank line"></a>delete vim blank line</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g&#x2F;^$&#x2F;d</span><br></pre></td></tr></table></figure>
+<ul>
+<li>:g will execute a command on lines which match a regex. The regex is ‘blank line’ and the command is :d (delete)</li>
+</ul>
+<h3 id="Replace-a-character-by-a-newline"><a href="#Replace-a-character-by-a-newline" class="headerlink" title="Replace a character by a newline"></a>Replace a character by a newline</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s&#x2F;, &#x2F;\r&#x2F;gc</span><br></pre></td></tr></table></figure>
+<p><code>\n</code> matches an end of line (newline), whereas <code>\r</code> matches a carriage return.<br>On the other hand, in substitutions <code>\n</code> inserts a null character whereas <code>\r</code> inserts a newline (more precisely, it’s treated as the input <CR>)</p>
+<h3 id="Replace-spaces-more-than-2-by-2-spaces-use-regex"><a href="#Replace-spaces-more-than-2-by-2-spaces-use-regex" class="headerlink" title="Replace spaces more than 2 by 2 spaces(use regex)"></a>Replace spaces more than 2 by 2 spaces(use regex)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%s&#x2F; \&#123;2,&#125;&#x2F;  &#x2F;gc</span><br></pre></td></tr></table></figure>
+<h3 id="Replace-tab-with-spaces"><a href="#Replace-tab-with-spaces" class="headerlink" title="Replace tab with spaces"></a>Replace tab with spaces</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s&#x2F;^I&#x2F;  &#x2F;gc</span><br></pre></td></tr></table></figure>
+<h3 id="insert-timastamp-into-vim"><a href="#insert-timastamp-into-vim" class="headerlink" title="insert timastamp into vim"></a>insert timastamp into vim</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:put =strftime(\"%c\")</span><br><span class="line">:put =strftime(<span class="string">'%c'</span>)</span><br><span class="line">:pu=strftime(<span class="string">'%c'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Or using external toolsEdit</span></span><br><span class="line">:r !date   <span class="comment">#very useful</span></span><br></pre></td></tr></table></figure>
+<h3 id="Abbreviation-and-Unabbreviation"><a href="#Abbreviation-and-Unabbreviation" class="headerlink" title="Abbreviation and Unabbreviation"></a>Abbreviation and Unabbreviation</h3><p>In the following example, whenever you type US it will expand to “United States” when you’ve defined the following abbreviation.<br>To abbreviate a word temporarily, execute the abbr command in command mode as shown below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:abbr US United States</span><br></pre></td></tr></table></figure>
+<p>To abbreviate a word permanently, you can place it in the <code>.vimrc</code> as shown above.<br>To remove an abbreviation definition temporarily, execute the noabbr command in command mode.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:noabbr US</span><br></pre></td></tr></table></figure>
+<h3 id="jump-using-ctrl-o-and-ctrl-i"><a href="#jump-using-ctrl-o-and-ctrl-i" class="headerlink" title="jump using ctrl-o and ctrl-i"></a>jump using ctrl-o and ctrl-i</h3><p>Vim keeps track of your navigation using a jump list.<br>You can go backward and forward through that list.<br>The jump list keeps tracks of all the places you’ve been to by tracking <code>file name, line number and column number</code>.<br>To view the jump list:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:jumps <span class="comment"># show all jumps history</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CTRL-O:  Jump back to previous spot</span><br><span class="line">CTRL-I:  Jump forward to next spot</span><br><span class="line">5CTRL-O: Jump to location<span class="comment">#5 shown above location#0</span></span><br><span class="line">5CTRL-I: Jump to location<span class="comment">#5 shown below location#0</span></span><br></pre></td></tr></table></figure>
+<h3 id="Navigate-Within-a-Very-Long-Line"><a href="#Navigate-Within-a-Very-Long-Line" class="headerlink" title="Navigate Within a Very Long Line"></a>Navigate Within a Very Long Line</h3><p>When you have a very long line without any newline, Vim treats it as single line. So, when you execute j on that line, it will jump to next line. However you’ll get a feeling that it has skipped lot of lines. But in reality it is just only long line.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gj: Scroll down a visual line</span><br><span class="line">gk: Scroll up a visual line</span><br><span class="line">g^: Go to the starting of current visual line</span><br><span class="line">g$: Go to the end of current visual line</span><br><span class="line">gm: Go to the middle of current visual line</span><br></pre></td></tr></table></figure>
+<h3 id="bookmarks"><a href="#bookmarks" class="headerlink" title="bookmarks"></a>bookmarks</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m&#123;lower case char&#125; : local bookmark</span><br><span class="line">m&#123;upper case char&#125; : global bookmark</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;a (backtick a):     Jump to the exact location of bookmark ‘a’</span><br><span class="line">‘a (single quote a): Jump to the beginning of the line containing the bookmark ‘a’</span><br><span class="line"></span><br><span class="line">marks :display all bookmarks</span><br></pre></td></tr></table></figure>
+<h3 id="Insert-or-Append-Other-File-to-This"><a href="#Insert-or-Append-Other-File-to-This" class="headerlink" title="Insert or Append Other File to This"></a>Insert or Append Other File to This</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r /path/to/filename.txt</span><br><span class="line">r commands <span class="comment"># Insert commands execute result into this file</span></span><br><span class="line"></span><br><span class="line">w newfilename.txt        <span class="comment"># copy this file to new created newfilename.txt</span></span><br><span class="line">1,10 w newfilename.txt 	 <span class="comment"># copy only 1~10 lines to new file newfilename.txt</span></span><br></pre></td></tr></table></figure>
+<h3 id="use-powerful-macro"><a href="#use-powerful-macro" class="headerlink" title="use powerful macro"></a>use powerful macro</h3><ul>
+<li>Step 1: Start recording by pressing q, followed by a lower case character to name the macro.</li>
+<li>Step 2: Perform any typical editing actions inside Vim editor, which will be recorded.</li>
+<li>Step 3: Stop recording by pressing q.</li>
+<li>Step 4: Play the recorded macro by pressing @ followed by the macro name.</li>
+<li>Step 5: To repeat macros multiple times, press : NN @ macro name. NN is a number.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qa             <span class="comment"># start recording name a macro</span></span><br><span class="line">some actions   <span class="comment"># Perform any typical actions</span></span><br><span class="line">q 						 <span class="comment"># Stop recording</span></span><br><span class="line">@a             <span class="comment"># Play the record a by one time</span></span><br><span class="line">8@a            <span class="comment"># Play the record a by 8 times</span></span><br></pre></td></tr></table></figure>
+<h3 id="sort-contents"><a href="#sort-contents" class="headerlink" title="sort contents"></a>sort contents</h3><p>Sort part of the file content as shown below.</p>
+<ul>
+<li>Go to visual mode by pressing <code>v</code>.</li>
+<li>Use arrow keys and select the lines that need to be sorted.</li>
+<li>Press :, which will show :’&lt;,’&gt;’ at the bottom of the Vim.</li>
+<li>Add !sort at the end to sort the selection</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:&#39;&lt;,&#39;&gt;!sort</span><br></pre></td></tr></table></figure>
+<p>The following options are available for the :sort Vim command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort :    Sort <span class="keyword">in</span> ascending order</span><br><span class="line">sort!:    Sort <span class="keyword">in</span> descending order</span><br><span class="line">sort i:   Ignore <span class="keyword">case</span> <span class="keyword">while</span> sorting</span><br><span class="line">sort u:   Remove duplicate lines. U stands <span class="keyword">for</span> unique.</span><br><span class="line">sort! ui: You can also combine all the sort <span class="built_in">command</span> options.</span><br></pre></td></tr></table></figure>
+<h3 id="show-deleted-contents"><a href="#show-deleted-contents" class="headerlink" title="show deleted contents"></a>show deleted contents</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:reg</span><br></pre></td></tr></table></figure>
+<h3 id="Increment-and-Decrement-Number-Using-CTRL-Keys"><a href="#Increment-and-Decrement-Number-Using-CTRL-Keys" class="headerlink" title="Increment and Decrement Number Using CTRL Keys"></a>Increment and Decrement Number Using CTRL Keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTRL-A: Increment Number. Place the cursor over a number <span class="keyword">in</span> Vim editor and press CTRL-A, <span class="built_in">which</span> will increase the number by 1.</span><br><span class="line">CTRL-X: Decrement Number. Place the cursor over a number <span class="keyword">in</span> Vim editor and press CTRL-X, <span class="built_in">which</span> will decrease the number by 0.</span><br></pre></td></tr></table></figure>
+<h3 id="Execute-One-Vim-Command-in-Insert-Mode"><a href="#Execute-One-Vim-Command-in-Insert-Mode" class="headerlink" title="Execute One Vim Command in Insert Mode"></a>Execute One Vim Command in Insert Mode</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl-o</span><br></pre></td></tr></table></figure>
+<p>The following is the sequence:</p>
+<ul>
+<li>You are in insert mode typing characters.</li>
+<li>Press CTRL-O, which will temporarily take you to command mode.</li>
+<li>Press any Vim command (for example, 5j to jump 5 lines)</li>
+<li>You are automatically back in insert mode after the single Vim command is executed.</li>
+</ul>
+<h3 id="View-Current-File-Details"><a href="#View-Current-File-Details" class="headerlink" title="View Current File Details"></a>View Current File Details</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl-g</span><br><span class="line">g ctrl-g</span><br></pre></td></tr></table></figure>
+<h3 id="Tabs-and-Spaces"><a href="#Tabs-and-Spaces" class="headerlink" title="Tabs and Spaces"></a>Tabs and Spaces</h3><p>The following are important tabs and space related commands.<br><code>set expandtab</code> : Convert tabs to spaces automatically. For example, When you type Tab, it will be converted it to 8 spaces. set tabstop=4 If you want Tab to be converted to 4 spaces, specify it with tabstop.</p>
+<p><code>retab</code>: Convert all the tabs in a files to spaces based on expandtab and tabstop option.</p>
+<p><code>set shiftwidth=4</code>: Specifies the number of spaces that should be used when you indent a line.</p>
+<p><code>set ai</code>: In insert mode, Vim will automatically indent new lines (when you hit return) to the same indent level of the current line.</p>
+<h3 id="Open-the-File-whose-Name-is-under-the-Cursor"><a href="#Open-the-File-whose-Name-is-under-the-Cursor" class="headerlink" title="Open the File whose Name is under the Cursor"></a>Open the File whose Name is under the Cursor</h3><p><code>gf</code>: Open a file (in the same window) whose name is currently under the cursor.<br><code>CTRL-W f</code>: Open a file (in a new window) whose name is currently under the cursor.<br><code>CTRL-W gf</code>: Open a file (in a new tab) whose name is currently under the cursor.</p>
+<h3 id="Edit-Multiple-Files-Using-the-Traditional"><a href="#Edit-Multiple-Files-Using-the-Traditional" class="headerlink" title="Edit Multiple Files Using the Traditional"></a>Edit Multiple Files Using the Traditional</h3><p>Open multiple files from command line.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim file1 file2 file2</span><br></pre></td></tr></table></figure>
+<p>Open another file when you are already in a Vim session.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:e another_file</span><br></pre></td></tr></table></figure>
+<p>List all open files in the current Vim session.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:ls</span><br></pre></td></tr></table></figure>
+<p>Go to the Nth file from the above :ls output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:e #N</span><br></pre></td></tr></table></figure>
+<p>Toggle between two files.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL-^</span><br></pre></td></tr></table></figure>
+<p>Go to next file when multiple files are opened.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:next</span><br></pre></td></tr></table></figure>
+<p>Go to previous file when multiple files are opened.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:previous</span><br></pre></td></tr></table></figure>
+<h3 id="Encrypt-File-in-Vim"><a href="#Encrypt-File-in-Vim" class="headerlink" title="Encrypt File in Vim"></a>Encrypt File in Vim</h3><p>Save and encrypt the current file:<br>Once you’ve encrypted a file using :X, the next time you open that file, Vim will prompt for the encryption key.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2016/05/05/2016/05/useful-vim-commands/" data-id="clo7yijox004jqu1bdcbpambq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/09/2016/05/my-first-blog/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          My First Blog
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

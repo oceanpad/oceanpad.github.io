@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>Linux Find Command | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux Find Command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Find Command">
+<meta property="og:url" content="http://oceanpad.github.io/2016/07/01/2016/07/Linux-Find-Command/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="Linux Find Command">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-06-30T22:29:30.000Z">
+<meta property="article:modified_time" content="2023-10-27T01:48:43.015Z">
+<meta property="article:author" content="haiyang">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/07/Linux-Find-Command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/01/2016/07/Linux-Find-Command/" class="article-date">
+  <time datetime="2016-06-30T22:29:30.000Z" itemprop="datePublished">2016-07-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux Find Command
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linux Find Command</p>
+<a id="more"></a>
+<h1 id="Basic-examples"><a href="#Basic-examples" class="headerlink" title="Basic examples"></a>Basic examples</h1><h3 id="1-List-all-files-in-current-and-sub-directories"><a href="#1-List-all-files-in-current-and-sub-directories" class="headerlink" title="1. List all files in current and sub directories"></a>1. List all files in current and sub directories</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ find</span><br><span class="line">.</span><br><span class="line">.&#x2F;abc.txt</span><br><span class="line">.&#x2F;subdir</span><br><span class="line">.&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;cool.php</span><br></pre></td></tr></table></figure>
+<p>The command is same as the following<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find .</span><br><span class="line">$ find . -print</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-Search-specific-directory-or-path"><a href="#2-Search-specific-directory-or-path" class="headerlink" title="2. Search specific directory or path"></a>2. Search specific directory or path</h3><p>The following command searches for files by their name.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -name &quot;abc.txt&quot;</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br></pre></td></tr></table></figure>
+<p>We can also use wildcards<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -name &quot;*.php&quot;</span><br><span class="line">.&#x2F;test&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;test&#x2F;cool.php</span><br></pre></td></tr></table></figure></p>
+<p>It is often useful to ignore the case when searching for file names. To ignore the case, just use the “iname” option instead of the “name” option.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -iname &quot;*.Php&quot;</span><br><span class="line">.&#x2F;test&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;test&#x2F;cool.php</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-Limit-depth-of-directory-traversal"><a href="#3-Limit-depth-of-directory-traversal" class="headerlink" title="3. Limit depth of directory traversal"></a>3. Limit depth of directory traversal</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -maxdepth 2 -name &quot;*.php&quot;</span><br><span class="line">.&#x2F;test&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;test&#x2F;cool.php</span><br><span class="line"></span><br><span class="line">$ find .&#x2F;test -maxdepth 1 -name *.php</span><br><span class="line">.&#x2F;test&#x2F;cool.php</span><br></pre></td></tr></table></figure>
+<p>Just like maxdepth there is an option called mindepth which does what the name suggests, that is, it will go atleast N level deep before searching for the files.</p>
+<h3 id="4-Invert-match"><a href="#4-Invert-match" class="headerlink" title="4. Invert match"></a>4. Invert match</h3><p>It is also possible to search for files that do not match a given name or pattern. This is helpful when we know which files to exclude from the search.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -not -name &quot;*.php&quot;</span><br><span class="line">.&#x2F;test</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br><span class="line">.&#x2F;test&#x2F;subdir</span><br></pre></td></tr></table></figure><br>So in the above example we found all files that do not have the extension of php, either non-php files. The find command also supports the exclamation mark inplace of not.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .&#x2F;test ! -name &quot;*.php&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-Combine-multiple-search-criterias"><a href="#5-Combine-multiple-search-criterias" class="headerlink" title="5. Combine multiple search criterias"></a>5. Combine multiple search criterias</h3><p>It is possible to use multiple criterias when specifying name and inverting. For example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -name &#39;abc*&#39; ! -name &#39;*.php&#39;</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br><span class="line">.&#x2F;test&#x2F;abc</span><br></pre></td></tr></table></figure><br>The above find command looks for files that begin with abc in their names and do not have a php extension. This is an example of how powerful search expressions can be build with the find command.</p>
+<ul>
+<li>OR operator</li>
+</ul>
+<p>When using multiple name criterias, the find command would combine them with AND operator, which means that only those files which satisfy all criterias will be matched. However if we need to perform an OR based matching then the find command has the “o” switch.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ find -name &#39;*.php&#39; -o -name &#39;*.txt&#39;</span><br><span class="line">.&#x2F;abc.txt</span><br><span class="line">.&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;abc.php</span><br><span class="line">.&#x2F;cool.php</span><br></pre></td></tr></table></figure><br>The above command search for files ending in either the php extension or the txt extension.</p>
+<h3 id="6-Search-only-files-or-only-directories"><a href="#6-Search-only-files-or-only-directories" class="headerlink" title="6. Search only files or only directories"></a>6. Search only files or only directories</h3><p>Sometimes we want to find only files or only directories with a given name. Find can do this easily as well.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -name &quot;abc*&quot;</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br><span class="line">.&#x2F;test&#x2F;abc</span><br></pre></td></tr></table></figure><br>Only files<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -type f -name &quot;abc*&quot;</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br></pre></td></tr></table></figure><br>Only directories<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test -type d -name &quot;abc*&quot;</span><br><span class="line">.&#x2F;test&#x2F;abc</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-Search-multiple-directories-together"><a href="#7-Search-multiple-directories-together" class="headerlink" title="7. Search multiple directories together"></a>7. Search multiple directories together</h3><p>So lets say you want to search inside 2 separate directories. Again, the command is very simple<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .&#x2F;test .&#x2F;dir2 -type f -name &quot;abc*&quot;</span><br><span class="line">.&#x2F;test&#x2F;abc.txt</span><br><span class="line">.&#x2F;dir2&#x2F;abcdefg.txt</span><br></pre></td></tr></table></figure><br>Check, that it listed files from 2 separate directories.</p>
+<h3 id="8-Find-hidden-files"><a href="#8-Find-hidden-files" class="headerlink" title="8. Find hidden files"></a>8. Find hidden files</h3><p>Hidden files on linux begin with a period. So its easy to mention that in the name criteria and list all hidden files.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find ~ -type f -name &quot;.*&quot;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Find-files-based-on-permissions"><a href="#Find-files-based-on-permissions" class="headerlink" title="Find files based on permissions"></a>Find files based on permissions</h1><h3 id="9-Find-files-with-certain-permissions"><a href="#9-Find-files-with-certain-permissions" class="headerlink" title="9. Find files with certain permissions"></a>9. Find files with certain permissions</h3><p>The find command can be used to find files with a specific permission using the “perm” option. The following command searches for files with the permission 0664<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ find . -type f -perm 0664</span><br><span class="line">.&#x2F;abc.txt</span><br><span class="line">.&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;abc.php</span><br><span class="line">.&#x2F;cool.php</span><br></pre></td></tr></table></figure><br>This can be useful to find files with wrong permissions which can lead to security issues. Inversion can also be applied to permission checking.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ find . -type f ! -perm 0777</span><br><span class="line">.&#x2F;abc.txt</span><br><span class="line">.&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;abc.php</span><br><span class="line">.&#x2F;cool.php</span><br></pre></td></tr></table></figure></p>
+<h3 id="10-Find-files-with-sgid-suid-bits-set"><a href="#10-Find-files-with-sgid-suid-bits-set" class="headerlink" title="10. Find files with sgid/suid bits set"></a>10. Find files with sgid/suid bits set</h3><p>The “perm” option of find command accepts the same mode string like chmod. The following command finds all files with permission 644 and sgid bit set.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -perm 2644</span><br></pre></td></tr></table></figure></p>
+<h3 id="11-Find-readonly-files"><a href="#11-Find-readonly-files" class="headerlink" title="11. Find readonly files"></a>11. Find readonly files</h3><p>Find all Read Only files.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;etc -maxdepth 1 -perm &#x2F;u&#x3D;r</span><br><span class="line">&#x2F;etc</span><br><span class="line">&#x2F;etc&#x2F;thunderbird</span><br><span class="line">&#x2F;etc&#x2F;brltty</span><br><span class="line">&#x2F;etc&#x2F;dkms</span><br><span class="line">&#x2F;etc&#x2F;phpmyadmin</span><br></pre></td></tr></table></figure></p>
+<h3 id="12-Find-executable-files"><a href="#12-Find-executable-files" class="headerlink" title="12. Find executable files"></a>12. Find executable files</h3><p>The following command will find executable files<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;bin -maxdepth 2 -perm &#x2F;a&#x3D;x</span><br><span class="line">&#x2F;bin</span><br><span class="line">&#x2F;bin&#x2F;preseed_command</span><br><span class="line">&#x2F;bin&#x2F;mount</span><br><span class="line">&#x2F;bin&#x2F;zfgrep</span><br><span class="line">&#x2F;bin&#x2F;tempfile</span><br></pre></td></tr></table></figure></p>
+<h1 id="Search-Files-Based-On-Owners-and-Groups"><a href="#Search-Files-Based-On-Owners-and-Groups" class="headerlink" title="Search Files Based On Owners and Groups"></a>Search Files Based On Owners and Groups</h1><h3 id="13-Find-files-belonging-to-particular-user"><a href="#13-Find-files-belonging-to-particular-user" class="headerlink" title="13. Find files belonging to particular user"></a>13. Find files belonging to particular user</h3><p>To find all or single file called tecmint.txt under /root directory of owner root.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ find . -user bob</span><br><span class="line">.</span><br><span class="line">.&#x2F;abc.txt</span><br><span class="line">.&#x2F;abc</span><br><span class="line">.&#x2F;subdir</span><br><span class="line">.&#x2F;subdir&#x2F;how.php</span><br><span class="line">.&#x2F;abc.php</span><br></pre></td></tr></table></figure><br>We could also specify the name of the file or any name related criteria along with user criteria</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find . -user bob -name &#39;*.php&#39;</span><br></pre></td></tr></table></figure>
+<p>Its very easy to see, how we can build up criteria after criteria to narrow down our search for matching files.</p>
+<h3 id="14-Search-files-belonging-to-group"><a href="#14-Search-files-belonging-to-group" class="headerlink" title="14. Search files belonging to group"></a>14. Search files belonging to group</h3><p>Find all files that belong to a particular group.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F;var&#x2F;www -group developer</span><br></pre></td></tr></table></figure><br>Did you know you could search your home directory by using the ~ symbol ?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find ~ -name &quot;hidden.php&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="15-Find-files-modified-N-days-back"><a href="#15-Find-files-modified-N-days-back" class="headerlink" title="15. Find files modified N days back"></a>15. Find files modified N days back</h3><p>To find all the files which are modified 50 days back.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -mtime 50</span><br></pre></td></tr></table></figure></p>
+<h3 id="16-Find-files-accessed-in-last-N-days"><a href="#16-Find-files-accessed-in-last-N-days" class="headerlink" title="16. Find files accessed in last N days"></a>16. Find files accessed in last N days</h3><p>Find all files that were accessed in the last 50 days.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -atime 50</span><br></pre></td></tr></table></figure></p>
+<h3 id="17-Find-files-modified-in-a-range-of-days"><a href="#17-Find-files-modified-in-a-range-of-days" class="headerlink" title="17. Find files modified in a range of days"></a>17. Find files modified in a range of days</h3><p>Find all files that were modified between 50 to 100 days ago.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -mtime +50 –mtime -100</span><br></pre></td></tr></table></figure></p>
+<h3 id="18-Find-files-changed-in-last-N-minutes"><a href="#18-Find-files-changed-in-last-N-minutes" class="headerlink" title="18. Find files changed in last N minutes."></a>18. Find files changed in last N minutes.</h3><p>Find files modified within the last 1 hour.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;home&#x2F;bob -cmin -60</span><br></pre></td></tr></table></figure></p>
+<h3 id="19-Files-modified-in-last-hour"><a href="#19-Files-modified-in-last-hour" class="headerlink" title="19. Files modified in last hour"></a>19. Files modified in last hour</h3><p>To find all the files which are modified in last 1 hour.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F; -mmin -60</span><br></pre></td></tr></table></figure></p>
+<h3 id="20-Find-Accessed-Files-in-Last-1-Hour"><a href="#20-Find-Accessed-Files-in-Last-1-Hour" class="headerlink" title="20. Find Accessed Files in Last 1 Hour"></a>20. Find Accessed Files in Last 1 Hour</h3><p>To find all the files which are accessed in last 1 hour.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -amin -60</span><br></pre></td></tr></table></figure></p>
+<h1 id="Search-files-and-directories-based-on-size"><a href="#Search-files-and-directories-based-on-size" class="headerlink" title="Search files and directories based on size"></a>Search files and directories based on size</h1><h3 id="21-Find-files-of-given-size"><a href="#21-Find-files-of-given-size" class="headerlink" title="21. Find files of given size"></a>21. Find files of given size</h3><p>To find all 50MB files, use.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find &#x2F; -size 50M</span><br></pre></td></tr></table></figure></p>
+<h3 id="22-Find-files-in-a-size-range"><a href="#22-Find-files-in-a-size-range" class="headerlink" title="22. Find files in a size range"></a>22. Find files in a size range</h3><p>To find all the files which are greater than 50MB and less than 100MB.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F; -size +50M -size -100M</span><br></pre></td></tr></table></figure></p>
+<h3 id="23-Find-largest-and-smallest-files"><a href="#23-Find-largest-and-smallest-files" class="headerlink" title="23. Find largest and smallest files"></a>23. Find largest and smallest files</h3><p>The find command when used in combination with the ls and sort command can be used to list out the largest files.<br>The following command will display the 5 largest file in the current directory and its subdirectory. This may take a while to execute depending on the total number of files the command has to process.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find . -type f -exec ls -s &#123;&#125; \; | sort -n -r | head -5</span><br></pre></td></tr></table></figure><br>Similary when sorted in ascending order, it would show the smallest files first<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find . -type f -exec ls -s &#123;&#125; \; | sort -n | head -5</span><br></pre></td></tr></table></figure></p>
+<h3 id="24-Find-empty-files-and-directories"><a href="#24-Find-empty-files-and-directories" class="headerlink" title="24. Find empty files and directories"></a>24. Find empty files and directories</h3><p>The following command uses the “empty” option of the find command, which finds all files that are empty.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;tmp -type f -empty</span><br></pre></td></tr></table></figure><br>To file all empty directories use the type “d”.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find ~&#x2F; -type d -empty</span><br></pre></td></tr></table></figure></p>
+<h1 id="Some-advanced-operations"><a href="#Some-advanced-operations" class="headerlink" title="Some advanced operations"></a>Some advanced operations</h1><p>The find command not only finds files based on a certain criteria, it can also act upon those files using any linux command. For example, we might want to delete some files.</p>
+<p>Here are some quick examples</p>
+<h3 id="25-List-out-the-found-files"><a href="#25-List-out-the-found-files" class="headerlink" title="25. List out the found files"></a>25. List out the found files</h3><p>Lets say we found files using find command, and now want to list them out as the ls command would have done. This is very easy.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ find . -exec ls -ld &#123;&#125; \;</span><br><span class="line">drwxrwxr-x 4 enlightened enlightened 4096 Aug 11 19:01 .</span><br><span class="line">-rw-rw-r-- 1 enlightened enlightened 0 Aug 11 16:25 .&#x2F;abc.txt</span><br><span class="line">drwxrwxr-x 2 enlightened enlightened 4096 Aug 11 16:48 .&#x2F;abc</span><br><span class="line">drwxrwxr-x 2 enlightened enlightened 4096 Aug 11 16:26 .&#x2F;subdir</span><br><span class="line">-rw-rw-r-- 1 enlightened enlightened 0 Aug 11 16:26 .&#x2F;subdir&#x2F;how.php</span><br><span class="line">-rw-rw-r-- 1 enlightened enlightened 29 Aug 11 19:13 .&#x2F;abc.php</span><br><span class="line">-rw-rw-r-- 1 enlightened enlightened 0 Aug 11 16:25 .&#x2F;cool.php</span><br></pre></td></tr></table></figure></p>
+<h3 id="26-Delete-all-matching-files-or-directories"><a href="#26-Delete-all-matching-files-or-directories" class="headerlink" title="26. Delete all matching files or directories"></a>26. Delete all matching files or directories</h3><p>The following command will remove all text files in the tmp directory.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;tmp -type f -name &quot;*.txt&quot; -exec rm -f &#123;&#125; \;</span><br></pre></td></tr></table></figure><br>The same operating can be carried out with directories, just put type d, instead of type f.</p>
+<p>Lets take another example where we want to delete files larger than 100MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find &#x2F;home&#x2F;bob&#x2F;dir -type f -name *.log -size +10M -exec rm -f &#123;&#125; \;</span><br></pre></td></tr></table></figure></p>
+<h3 id="27-find-all-files-excliude-folder"><a href="#27-find-all-files-excliude-folder" class="headerlink" title="27. find all files excliude folder"></a>27. find all files excliude folder</h3><p>The following command will find all files excliude venv folder<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find . | grep -v venv</span><br><span class="line">$ find . | grep -v venv | grep -v pycache</span><br></pre></td></tr></table></figure></p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>So that was a quick tutorial on the linux find command. The find command is one of the most essential commands on the linux terminal, that enables searching of files very easy. Its a must of all system administrators. So learn it up. Have any questions ? Leave a comment below.</p>
+<ul>
+<li>Reference <a href="http://www.binarytides.com/linux-find-command-examples/" target="_blank" rel="noopener">http://www.binarytides.com/linux-find-command-examples/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2016/07/01/2016/07/Linux-Find-Command/" data-id="clo7yijoy004pqu1bgmci9yb5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/01/2016/07/Linux-Grep-Command/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux Grep Command
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/30/2016/06/Change-New-Mysql-Root-Pass/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Change New Installed Mysql Root PassWord</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

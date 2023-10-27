@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>Http Response Status Code | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirects, cl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http Response Status Code">
+<meta property="og:url" content="http://oceanpad.github.io/2016/09/08/2016/09/Http-Response-Status-Code/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirects, cl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-09-07T21:16:39.000Z">
+<meta property="article:modified_time" content="2023-10-27T01:48:43.016Z">
+<meta property="article:author" content="haiyang">
+<meta property="article:tag" content="Programming">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/09/Http-Response-Status-Code" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/08/2016/09/Http-Response-Status-Code/" class="article-date">
+  <time datetime="2016-09-07T21:16:39.000Z" itemprop="datePublished">2016-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Http Response Status Code
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirects, client errors, and servers errors.</p>
+<a id="more"></a>
+<h2 id="Information-responses"><a href="#Information-responses" class="headerlink" title="Information responses"></a>Information responses</h2><h4 id="100-Continue"><a href="#100-Continue" class="headerlink" title="100 Continue"></a>100 Continue</h4><p>This interim response indicates that everything so far is OK and that the client should continue with the request or ignore it if it is already finished.</p>
+<h4 id="101-Switching-Protocol"><a href="#101-Switching-Protocol" class="headerlink" title="101 Switching Protocol"></a>101 Switching Protocol</h4><p>This code is sent in response to an Upgrade: request header by the client, and indicates that the protocol the server is switching too. It was introduced to allow migration to an incompatible protocol version, and is not in common use.</p>
+<h2 id="Successful-responses"><a href="#Successful-responses" class="headerlink" title="Successful responses"></a>Successful responses</h2><h4 id="200-OK"><a href="#200-OK" class="headerlink" title="200 OK"></a>200 OK</h4><p>The request has succeeded. The meaning of a success varies depending on the HTTP method:<br>GET: The resource has been fetched and is transmitted in the message body.<br>HEAD: The entity headers are in the message body.<br>POST: The resource describing the result of the action is transmitted in the message body.<br>TRACE: The message body contains the request message as received by the server</p>
+<h4 id="201-Created"><a href="#201-Created" class="headerlink" title="201 Created"></a>201 Created</h4><p>The request has succeeded and a new resource has been created as a result of it. This is typically the response sent after a PUT request.</p>
+<h4 id="202-Accepted"><a href="#202-Accepted" class="headerlink" title="202 Accepted"></a>202 Accepted</h4><p>The request has been received but not yet acted upon. It is non-committal, meaning that there is no way in HTTP to later send an asynchronous response indicating the outcome of processing the request. It is intended for cases where another process or server handles the request, or for batch processing.</p>
+<h4 id="203-Non-Authoritative-Information"><a href="#203-Non-Authoritative-Information" class="headerlink" title="203 Non-Authoritative Information"></a>203 Non-Authoritative Information</h4><p>This response code means returned meta-information set is not exact set as available from the origin server, but collected from a local or a third party copy. Except this condition, 200 OK response should be preferred instead of this response.</p>
+<h4 id="204-No-Content"><a href="#204-No-Content" class="headerlink" title="204 No Content"></a>204 No Content</h4><p>There is no content to send for this request, but the headers may be useful. The user-agent may update its cached headers for this resource with the new ones.</p>
+<h4 id="205-Reset-Content"><a href="#205-Reset-Content" class="headerlink" title="205 Reset Content"></a>205 Reset Content</h4><p>This response code is sent after accomplishing request to tell user agent reset document view which sent this request.</p>
+<h4 id="206-Partial-Content"><a href="#206-Partial-Content" class="headerlink" title="206 Partial Content"></a>206 Partial Content</h4><p>This response code is used because of range header sent by the client to separate download into multiple streams.</p>
+<h2 id="Redirection-messages"><a href="#Redirection-messages" class="headerlink" title="Redirection messages"></a>Redirection messages</h2><h4 id="300-Multiple-Choice"><a href="#300-Multiple-Choice" class="headerlink" title="300 Multiple Choice"></a>300 Multiple Choice</h4><p>The request has more than one possible responses. User-agent or user should choose one of them. There is no standardized way to choose one of the responses.</p>
+<h4 id="301-Moved-Permanently"><a href="#301-Moved-Permanently" class="headerlink" title="301 Moved Permanently"></a>301 Moved Permanently</h4><p>This response code means that URI of requested resource has been changed. Probably, new URI would be given in the response.</p>
+<h4 id="302-Found"><a href="#302-Found" class="headerlink" title="302 Found"></a>302 Found</h4><p>This response code means that URI of requested resource has been changed temporarily. New changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.</p>
+<h4 id="303-See-Other"><a href="#303-See-Other" class="headerlink" title="303 See Other"></a>303 See Other</h4><p>Server sent this response to directing client to get requested resource to another URI with an GET request.</p>
+<h4 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h4><p>This is used for caching purposes. It is telling to client that response has not been modified. So, client can continue to use same cached version of response.</p>
+<h4 id="305-Use-Proxy"><a href="#305-Use-Proxy" class="headerlink" title="305 Use Proxy"></a>305 Use Proxy</h4><p>This means requested response must be accessed by a proxy. This response code is not largely supported because security reasons.</p>
+<h4 id="306-unused"><a href="#306-unused" class="headerlink" title="306 unused"></a>306 unused</h4><p>This response code is no longer used, it is just reserved currently. It was used in a previous version of the HTTP 1.1 specification.</p>
+<h4 id="307-Temporary-Redirect"><a href="#307-Temporary-Redirect" class="headerlink" title="307 Temporary Redirect"></a>307 Temporary Redirect</h4><p>Server sent this response to directing client to get requested resource to another URI with same method that used prior request. This has the same semantic than the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.</p>
+<h4 id="308-Permanent-Redirect"><a href="#308-Permanent-Redirect" class="headerlink" title="308 Permanent Redirect"></a>308 Permanent Redirect</h4><p>This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.</p>
+<h2 id="Client-error-responses"><a href="#Client-error-responses" class="headerlink" title="Client error responses"></a>Client error responses</h2><h4 id="400-Bad-Request"><a href="#400-Bad-Request" class="headerlink" title="400 Bad Request"></a>400 Bad Request</h4><p>This response means that server could not understand the request due to invalid syntax.</p>
+<h4 id="401-Unauthorized"><a href="#401-Unauthorized" class="headerlink" title="401 Unauthorized"></a>401 Unauthorized</h4><p>Authentication is needed to get requested response. This is similar to 403, but in this case, authentication is possible.</p>
+<h4 id="402-Payment-Required"><a href="#402-Payment-Required" class="headerlink" title="402 Payment Required"></a>402 Payment Required</h4><p>This response code is reserved for future use. Initial aim for creating this code was using it for digital payment systems however this is not used currently.</p>
+<h4 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 Forbidden"></a>403 Forbidden</h4><p>Client does not have access rights to the content so server is rejecting to give proper response.</p>
+<h4 id="404-Not-Found"><a href="#404-Not-Found" class="headerlink" title="404 Not Found"></a>404 Not Found</h4><p>Server can not find requested resource. This response code probably is most famous one due to its frequency to occur in web.</p>
+<h4 id="405-Method-Not-Allowed"><a href="#405-Method-Not-Allowed" class="headerlink" title="405 Method Not Allowed"></a>405 Method Not Allowed</h4><p>The request method is known by the server but has been disabled and cannot be used. The two mandatory methods, GET and HEAD, must never be disabled and should not return this error code.</p>
+<h4 id="406-Not-Acceptable"><a href="#406-Not-Acceptable" class="headerlink" title="406 Not Acceptable"></a>406 Not Acceptable</h4><p>This response is sent when the web server, after performing server-driven content negotiation, doesn’t find any content following the criteria given by the user agent.</p>
+<h4 id="407-Proxy-Authentication-Required"><a href="#407-Proxy-Authentication-Required" class="headerlink" title="407 Proxy Authentication Required"></a>407 Proxy Authentication Required</h4><p>This is similar to 401 but authentication is needed to be done by a proxy.</p>
+<h4 id="408-Request-Timeout"><a href="#408-Request-Timeout" class="headerlink" title="408 Request Timeout"></a>408 Request Timeout</h4><p>This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome or IE9, use HTTP preconnection mechanisms to speed up surfing (see bug 881804, which tracks the future implementation of such a mechanism in Firefox). Also note that some servers merely shut down the connection without sending this message.</p>
+<h4 id="409-Conflict"><a href="#409-Conflict" class="headerlink" title="409 Conflict"></a>409 Conflict</h4><p>This response would be sent when a request conflict with current state of server.</p>
+<h4 id="410-Gone"><a href="#410-Gone" class="headerlink" title="410 Gone"></a>410 Gone</h4><p>This response would be sent when requested content has been deleted from server.</p>
+<h4 id="411-Length-Required"><a href="#411-Length-Required" class="headerlink" title="411 Length Required"></a>411 Length Required</h4><p>Server rejected the request because the Content-Length header field is not defined and the server requires it.</p>
+<h4 id="412-Precondition-Failed"><a href="#412-Precondition-Failed" class="headerlink" title="412 Precondition Failed"></a>412 Precondition Failed</h4><p>The client has indicated preconditions in its headers which the server does not meet.</p>
+<h4 id="413-Payload-Too-Large"><a href="#413-Payload-Too-Large" class="headerlink" title="413 Payload Too Large"></a>413 Payload Too Large</h4><p>Request entity is larger than limits defined by server; the server might close the connection or return an Retry-After header field.</p>
+<h4 id="414-URI-Too-Long"><a href="#414-URI-Too-Long" class="headerlink" title="414 URI Too Long"></a>414 URI Too Long</h4><p>The URI requested by the client is longer than the server is willing to interpret.</p>
+<h4 id="415-Unsupported-Media-Type"><a href="#415-Unsupported-Media-Type" class="headerlink" title="415 Unsupported Media Type"></a>415 Unsupported Media Type</h4><p>The media format of the requested data is not supported by the server, so the server is rejecting the request.</p>
+<h4 id="416-Requested-Range-Not-Satisfiable"><a href="#416-Requested-Range-Not-Satisfiable" class="headerlink" title="416 Requested Range Not Satisfiable"></a>416 Requested Range Not Satisfiable</h4><p>The range specified by the Range header field in the request can’t be fulfilled; it’s possible that the range is outside the size of the target URI’s data.</p>
+<h4 id="417-Expectation-Failed"><a href="#417-Expectation-Failed" class="headerlink" title="417 Expectation Failed"></a>417 Expectation Failed</h4><p>This response code means the expectation indicated by the Expect request header field can’t be met by the server.</p>
+<h4 id="421-Misdirected-Request"><a href="#421-Misdirected-Request" class="headerlink" title="421 Misdirected Request"></a>421 Misdirected Request</h4><p>The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI.</p>
+<h4 id="426-Upgrade-Required"><a href="#426-Upgrade-Required" class="headerlink" title="426 Upgrade Required"></a>426 Upgrade Required</h4><p>The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server MUST send an Upgrade header field in a 426 response to indicate the required protocol(s) (Section 6.7 of [RFC7230]).</p>
+<h4 id="428-Precondition-Required"><a href="#428-Precondition-Required" class="headerlink" title="428 Precondition Required"></a>428 Precondition Required</h4><p>The origin server requires the request to be conditional. Intended to prevent “the ‘lost update’ problem, where a client GETs a resource’s state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.</p>
+<h4 id="429-Too-Many-Requests"><a href="#429-Too-Many-Requests" class="headerlink" title="429 Too Many Requests"></a>429 Too Many Requests</h4><p>The user has sent too many requests in a given amount of time (“rate limiting”).</p>
+<h4 id="431-Request-Header-Fields-Too-Large"><a href="#431-Request-Header-Fields-Too-Large" class="headerlink" title="431 Request Header Fields Too Large"></a>431 Request Header Fields Too Large</h4><p>The server is unwilling to process the request because its header fields are too large. The request MAY be resubmitted after reducing the size of the request header fields.</p>
+<h4 id="451-Unavailable-For-Legal-Reasons"><a href="#451-Unavailable-For-Legal-Reasons" class="headerlink" title="451 Unavailable For Legal Reasons"></a>451 Unavailable For Legal Reasons</h4><p>The user requests an illegal resource, such as a web page censored by a government.</p>
+<h2 id="Server-error-responses"><a href="#Server-error-responses" class="headerlink" title="Server error responses"></a>Server error responses</h2><h4 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 Internal Server Error"></a>500 Internal Server Error</h4><p>The server has encountered a situation it doesn’t know how to handle.</p>
+<h4 id="501-Not-Implemented"><a href="#501-Not-Implemented" class="headerlink" title="501 Not Implemented"></a>501 Not Implemented</h4><p>The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.</p>
+<h4 id="502-Bad-Gateway"><a href="#502-Bad-Gateway" class="headerlink" title="502 Bad Gateway"></a>502 Bad Gateway</h4><p>This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.</p>
+<h4 id="503-Service-Unavailable"><a href="#503-Service-Unavailable" class="headerlink" title="503 Service Unavailable"></a>503 Service Unavailable</h4><p>The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This responses should be used for temporary conditions and the Retry-After: HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.</p>
+<h4 id="504-Gateway-Timeout"><a href="#504-Gateway-Timeout" class="headerlink" title="504 Gateway Timeout"></a>504 Gateway Timeout</h4><p>This error response is given when the server is acting as a gateway and cannot get a response in time.</p>
+<h4 id="505-HTTP-Version-Not-Supported"><a href="#505-HTTP-Version-Not-Supported" class="headerlink" title="505 HTTP Version Not Supported"></a>505 HTTP Version Not Supported</h4><p>The HTTP version used in the request is not supported by the server.</p>
+<h4 id="506-Variant-Also-Negotiates"><a href="#506-Variant-Also-Negotiates" class="headerlink" title="506 Variant Also Negotiates"></a>506 Variant Also Negotiates</h4><p>The server has an internal configuration error: transparent content negotiation for the request results in a circular reference.</p>
+<h4 id="507-Variant-Also-Negotiates"><a href="#507-Variant-Also-Negotiates" class="headerlink" title="507 Variant Also Negotiates"></a>507 Variant Also Negotiates</h4><p>The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.</p>
+<h4 id="511-Network-Authentication-Required"><a href="#511-Network-Authentication-Required" class="headerlink" title="511 Network Authentication Required"></a>511 Network Authentication Required</h4><p>The 511 status code indicates that the client needs to authenticate to gain network access.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2016/09/08/2016/09/Http-Response-Status-Code/" data-id="clo7yijp0005oqu1b6s7p8xsk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming/" rel="tag">Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/16/2016/09/My-New-Monitor-is-Comming/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          My New Monitor Has Arrived
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/29/2016/08/Python-Introduce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python Introduce</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

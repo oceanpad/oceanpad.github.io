@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>Linux UID and GID | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="虽然我们登陆 Linux 主机的时候，输入的是我们的账号，但是其实 Linux 主机并不会直接认识你的『账号名称』的，他仅认识 ID 。 由于计算机仅认识 0 与 1，所以主机对于数字比较有概念的；至于账号只是为了让人们容易记忆而已。 而你的 ID 与账号的对应就在 &#x2F;etc&#x2F;passwd 当中哩。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux UID and GID">
+<meta property="og:url" content="http://oceanpad.github.io/2016/11/15/2016/11/Linux-UID-and-GID/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="虽然我们登陆 Linux 主机的时候，输入的是我们的账号，但是其实 Linux 主机并不会直接认识你的『账号名称』的，他仅认识 ID 。 由于计算机仅认识 0 与 1，所以主机对于数字比较有概念的；至于账号只是为了让人们容易记忆而已。 而你的 ID 与账号的对应就在 &#x2F;etc&#x2F;passwd 当中哩。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-11-15T02:49:48.000Z">
+<meta property="article:modified_time" content="2023-10-27T01:48:43.017Z">
+<meta property="article:author" content="haiyang">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/11/Linux-UID-and-GID" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/15/2016/11/Linux-UID-and-GID/" class="article-date">
+  <time datetime="2016-11-15T02:49:48.000Z" itemprop="datePublished">2016-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux UID and GID
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然我们登陆 Linux 主机的时候，输入的是我们的账号，但是其实 Linux 主机并不会直接认识你的『账号名称』的，他仅认识 ID 。 由于计算机仅认识 0 与 1，所以主机对于数字比较有概念的；至于账号只是为了让人们容易记忆而已。 而你的 ID 与账号的对应就在 <code>/etc/passwd</code> 当中哩。<br><a id="more"></a></p>
+<ul>
+<li><code>/etc/passwd</code>: 管理使用者 UID/GID 重要参数, 账号对应的 UID 与 GID (在 <code>/etc/group</code> 中)</li>
+<li><code>/etc/shadow</code>: 专门管理口令相关数据, <code>/etc/shadow</code> 里面对应账号与 UID，核对一下你输入的口令与里头的口令是否相符</li>
+</ul>
+<h1 id="etc-passwd-文件结构"><a href="#etc-passwd-文件结构" class="headerlink" title="/etc/passwd 文件结构"></a>/etc/passwd 文件结构</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># head -n 4 /etc/passwd</span></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br></pre></td></tr></table></figure>
+<p>每一行都代表一个账号，有几行就代表有几个账号在你的系统中, 每一行使用『:』分隔开，共有七个:</p>
+<h3 id="1-账号名称："><a href="#1-账号名称：" class="headerlink" title="1. 账号名称："></a>1. 账号名称：</h3><p>就是账号啦！用来对应 UID 的。例如 root 的 UID 对应就是 0 (第三字段)；</p>
+<h3 id="2-口令："><a href="#2-口令：" class="headerlink" title="2. 口令："></a>2. 口令：</h3><p>早期 Unix 系统的口令就是放在这字段上！但是因为这个文件的特性是所有的程序都能够读取，这样一来很容易造成口令数据被窃取， 因此后来就将这个字段的口令数据给他改放到 /etc/shadow 中了。所以这里你会看到一个『 x 』，呵呵！</p>
+<h3 id="3-UID："><a href="#3-UID：" class="headerlink" title="3. UID："></a>3. UID：</h3><p>这个就是使用者标识符啰！<br>0: (系统管理员)<br>1~499: (系统账号)<br>1~99：由 distributions 自行创建的系统账号；<br>100~499：若用户有系统账号需求时，可以使用的账号 UID。<br>500~65535: (可登陆账号)</p>
+<h3 id="4-GID："><a href="#4-GID：" class="headerlink" title="4. GID："></a>4. GID：</h3><p>这个与 /etc/group 有关！其实 /etc/group 的观念与 /etc/passwd 差不多，只是他是用来规范组名与 GID 的对应而已！</p>
+<h3 id="5-用户信息说明栏："><a href="#5-用户信息说明栏：" class="headerlink" title="5. 用户信息说明栏："></a>5. 用户信息说明栏：</h3><p>这个字段基本上并没有什么重要用途，只是用来解释这个账号的意义而已！不过，如果您提供使用 finger 的功能时， 这个字段可以提供很多的信息呢！本章后面的 chfn 命令会来解释这里的说明。</p>
+<h3 id="6-家目录："><a href="#6-家目录：" class="headerlink" title="6. 家目录："></a>6. 家目录：</h3><p>这是用户的家目录，以上面为例， root 的家目录在 /root ，所以当 root 登陆之后，就会立刻跑到 /root 目录里头啦！呵呵！ 如果你有个账号的使用空间特别的大，你想要将该账号的家目录移动到其他的硬盘去该怎么作？ 没有错！可以在这个字段进行修改呦！默认的用户家目录在 /home/yourIDname</p>
+<h3 id="7-Shell："><a href="#7-Shell：" class="headerlink" title="7. Shell："></a>7. Shell：</h3><p>我们在第十一章 BASH 提到很多次，当用户登陆系统后就会取得一个 Shell 来与系统的核心沟通以进行用户的操作任务。那为何默认 shell 会使用 bash 呢？就是在这个字段指定的啰！ 这里比较需要注意的是，有一个 shell 可以用来替代成让账号无法取得 shell 环境的登陆动作！那就是 /sbin/nologin 这个东西！这也可以用来制作纯 pop 邮件账号者的数据呢！</p>
+<h1 id="etc-shadow-文件结构"><a href="#etc-shadow-文件结构" class="headerlink" title="/etc/shadow 文件结构"></a>/etc/shadow 文件结构</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># head -n 4 /etc/shadow</span></span><br><span class="line">root:<span class="variable">$1</span>$/30QpE5e<span class="variable">$y9N</span>/D0bh6rAACBEz.hqo00:14126:0:99999:7:::  &lt;==底下说明用</span><br><span class="line">bin:*:14126:0:99999:7:::</span><br><span class="line">daemon:*:14126:0:99999:7:::</span><br><span class="line">adm:*:14126:0:99999:7:::</span><br></pre></td></tr></table></figure>
+<p>shadow 同样以『:』作为分隔符，如果数一数，会发现共有九个字段</p>
+<h3 id="1-账号名称：-1"><a href="#1-账号名称：-1" class="headerlink" title="1. 账号名称："></a>1. 账号名称：</h3><p>由于口令也需要与账号对应啊～因此，这个文件的第一栏就是账号，必须要与 /etc/passwd 相同才行！</p>
+<h3 id="2-口令：-1"><a href="#2-口令：-1" class="headerlink" title="2. 口令："></a>2. 口令：</h3><p>这个字段内的数据才是真正的口令，而且是经过编码的口令 (加密) 啦！ 你只会看到有一些特殊符号的字母就是了！需要特别留意的是，虽然这些加密过的口令很难被解出来， 但是『很难』不等于『不会』，所以，这个文件的默认权限是『-rw——-』或者是『-r——–』，亦即只有 root 才可以读写就是了！你得随时注意，不要不小心更动了这个文件的权限呢！</p>
+<p>另外，由于各种口令编码的技术不一样，因此不同的编码系统会造成这个字段的长度不相同。 举例来说，旧式的 DES 编码系统产生的口令长度就与目前惯用的 MD5 不同(注2)！MD5 的口令长度明显的比较长些。由于固定的编码系统产生的口令长度必须一致，因此『当你让这个字段的长度改变后，该口令就会失效(算不出来)』。 很多软件透过这个功能，在此字段前加上 ! 或 * 改变口令字段长度，就会让口令『暂时失效』了。 </p>
+<h3 id="3-最近更动口令的日期："><a href="#3-最近更动口令的日期：" class="headerlink" title="3. 最近更动口令的日期："></a>3. 最近更动口令的日期：</h3><p>这个字段记录了『更动口令那一天』的日期，不过，很奇怪呀！在我的例子中怎么会是 14126 呢？呵呵，这个是因为计算 Linux 日期的时间是以 1970 年 1 月 1 日作为 1 而累加的日期，1971 年 1 月 1 日则为 366 啦！ 得注意一下这个数据呦！上述的 14126 指的就是 2008-09-04 那一天啦！了解乎？</p>
+<h3 id="4-口令不可被更动的天数：-与第-3-字段相比"><a href="#4-口令不可被更动的天数：-与第-3-字段相比" class="headerlink" title="4. 口令不可被更动的天数：(与第 3 字段相比)"></a>4. 口令不可被更动的天数：(与第 3 字段相比)</h3><p>第四个字段记录了：这个账号的口令在最近一次被更改后需要经过几天才可以再被变更！如果是 0 的话， 表示口令随时可以更动的意思。这的限制是为了怕口令被某些人一改再改而设计的！如果配置为 20 天的话，那么当你配置了口令之后， 20 天之内都无法改变这个口令呦！</p>
+<h3 id="5-口令需要重新变更的天数：-与第-3-字段相比"><a href="#5-口令需要重新变更的天数：-与第-3-字段相比" class="headerlink" title="5. 口令需要重新变更的天数：(与第 3 字段相比)"></a>5. 口令需要重新变更的天数：(与第 3 字段相比)</h3><p>经常变更口令是个好习惯！为了强制要求用户变更口令，这个字段可以指定在最近一次更改口令后， 在多少天数内需要再次的变更口令才行。你必须要在这个天数内重新配置你的口令，否则这个账号的口令将会『变为过期特性』。 而如果像上面的 99999 (计算为 273 年) 的话，那就表示，呵呵，口令的变更没有强制性之意。</p>
+<h3 id="6-口令需要变更期限前的警告天数：-与第-5-字段相比"><a href="#6-口令需要变更期限前的警告天数：-与第-5-字段相比" class="headerlink" title="6.口令需要变更期限前的警告天数：(与第 5 字段相比)"></a>6.口令需要变更期限前的警告天数：(与第 5 字段相比)</h3><p>当账号的口令有效期限快要到的时候 (第 5 字段)，系统会依据这个字段的配置，发出『警告』言论给这个账号，提醒他『再过 n 天你的口令就要过期了，请尽快重新配置你的口令呦！』，如上面的例子，则是口令到期之前的 7 天之内，系统会警告该用户。</p>
+<h3 id="7-口令过期后的账号宽限时间-口令失效日-：-与第-5-字段相比"><a href="#7-口令过期后的账号宽限时间-口令失效日-：-与第-5-字段相比" class="headerlink" title="7. 口令过期后的账号宽限时间(口令失效日)：(与第 5 字段相比)"></a>7. 口令过期后的账号宽限时间(口令失效日)：(与第 5 字段相比)</h3><p>口令有效日期为『升级日期(第3字段)』+『重新变更日期(第5字段)』，过了该期限后用户依旧没有升级口令，那该口令就算过期了。 虽然口令过期但是该账号还是可以用来进行其他工作的，包括登陆系统取得 bash 。不过如果口令过期了， 那当你登陆系统时，系统会强制要求你必须要重新配置口令才能登陆继续使用喔，这就是口令过期特性。</p>
+<p>那这个字段的功能是什么呢？是在口令过期几天后，如果使用者还是没有登陆更改口令，那么这个账号的口令将会『失效』， 亦即该账号再也无法使用该口令登陆了。要注意口令过期与口令失效并不相同。</p>
+<h3 id="8-账号失效日期："><a href="#8-账号失效日期：" class="headerlink" title="8. 账号失效日期："></a>8. 账号失效日期：</h3><p>这个日期跟第三个字段一样，都是使用 1970 年以来的总日数配置。这个字段表示： 这个账号在此字段规定的日期之后，将无法再使用。 就是所谓的『账号失效』，此时不论你的口令是否有过期，这个『账号』都不能再被使用！ 这个字段会被使用通常应该是在『收费服务』的系统中，你可以规定一个日期让该账号不能再使用啦！</p>
+<h3 id="9-保留："><a href="#9-保留：" class="headerlink" title="9. 保留："></a>9. 保留：</h3><p>最后一个字段是保留的，看以后有没有新功能加入。</p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><h3 id="一般用户的口令忘记了："><a href="#一般用户的口令忘记了：" class="headerlink" title="一般用户的口令忘记了："></a>一般用户的口令忘记了：</h3><p>这个最容易解决，请系统管理员帮忙， 他会重新配置好你的口令而不需要知道你的旧口令！利用 root 的身份使用 passwd 命令来处理即可。</p>
+<h3 id="root-口令忘记了："><a href="#root-口令忘记了：" class="headerlink" title="root 口令忘记了："></a>root 口令忘记了：</h3><p>这就麻烦了！因为你无法使用 root 的身份登陆了嘛！ 但我们知道 root 的口令在 /etc/shadow 当中，因此你可以使用各种可行的方法启动进入 Linux 再去修改。 例如重新启动进入单人维护模式(第二十章)后，系统会主动的给予 root 权限的 bash 接口， 此时再以 passwd 修改口令即可；或以 Live CD 启动后挂载根目录去修改 /etc/shadow，将里面的 root 的口令字段清空， 再重新启动后 root 将不用口令即可登陆！登陆后再赶快以 passwd 命令去配置 root 口令即可。</p>
+<h1 id="etc-group-文件结构"><a href="#etc-group-文件结构" class="headerlink" title="/etc/group 文件结构"></a>/etc/group 文件结构</h1><p>这个文件就是在记录 GID 与组名的对应了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># head -n 4 /etc/group</span></span><br><span class="line">root:x:0:root</span><br><span class="line">bin:x:1:root,bin,daemon</span><br><span class="line">daemon:x:2:root,bin,daemon</span><br><span class="line">sys:x:3:root,bin,adm</span><br></pre></td></tr></table></figure><br>这个文件每一行代表一个群组，也是以冒号『:』作为字段的分隔符，共分为四栏，每一字段的意义是：</p>
+<h3 id="1-组名："><a href="#1-组名：" class="headerlink" title="1. 组名："></a>1. 组名：</h3><p>就是组名啦！</p>
+<h3 id="2-群组口令："><a href="#2-群组口令：" class="headerlink" title="2. 群组口令："></a>2. 群组口令：</h3><p>通常不需要配置，这个配置通常是给『群组管理员』使用的，目前很少有这个机会配置群组管理员啦！ 同样的，口令已经移动到 /etc/gshadow 去，因此这个字段只会存在一个『x』而已；</p>
+<h3 id="3-GID："><a href="#3-GID：" class="headerlink" title="3. GID："></a>3. GID：</h3><p>就是群组的 ID 啊。我们 /etc/passwd 第四个字段使用的 GID 对应的群组名，就是由这里对应出来的！</p>
+<h3 id="4-此群组支持的账号名称："><a href="#4-此群组支持的账号名称：" class="headerlink" title="4. 此群组支持的账号名称："></a>4. 此群组支持的账号名称：</h3><p>我们知道一个账号可以加入多个群组，那某个账号想要加入此群组时，将该账号填入这个字段即可。 举例来说，如果我想要让 dmtsai 也加入 root 这个群组，那么在第一行的最后面加上『,dmtsai』，注意不要有空格， 使成为『 root:x:0:root,dmtsai 』就可以啰～</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2016/11/15/2016/11/Linux-UID-and-GID/" data-id="clo7yijp10064qu1beu79gmf7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/16/2016/11/Js-Iterable/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Js Iterable
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/11/2016/11/scala-map-cache-method/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Scala Map Cache Method</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

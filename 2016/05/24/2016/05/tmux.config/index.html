@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="https://github.com/oceanpad/oceanpad.github.io/blob/master/favicon.png">
+  
+  <title>.tmux.conf | haiyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DeprecatedPlease refer to: https:&#x2F;&#x2F;github.com&#x2F;oceanpad&#x2F;tmux-conf">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".tmux.conf">
+<meta property="og:url" content="http://oceanpad.github.io/2016/05/24/2016/05/tmux.config/index.html">
+<meta property="og:site_name" content="haiyang&#39;s blog">
+<meta property="og:description" content="DeprecatedPlease refer to: https:&#x2F;&#x2F;github.com&#x2F;oceanpad&#x2F;tmux-conf">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-05-23T22:41:23.000Z">
+<meta property="article:modified_time" content="2023-10-27T01:48:43.011Z">
+<meta property="article:author" content="haiyang">
+<meta property="article:tag" content="Tmux">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90599928-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">haiyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Lifelong Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://oceanpad.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/05/tmux.config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/24/2016/05/tmux.config/" class="article-date">
+  <time datetime="2016-05-23T22:41:23.000Z" itemprop="datePublished">2016-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      .tmux.conf
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Deprecated"><a href="#Deprecated" class="headerlink" title="Deprecated"></a>Deprecated</h1><p>Please refer to: <a href="https://github.com/oceanpad/tmux-conf" target="_blank" rel="noopener">https://github.com/oceanpad/tmux-conf</a></p>
+<a id="more"></a>
+<p><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del><br><del>Deprecated</del></p>
+<ul>
+<li>Install Tmux Plugins Manager<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;tmux-plugins&#x2F;tpm ~&#x2F;.tmux&#x2F;plugins&#x2F;tpm</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>Install tmux-mem-cpu-load</li>
+<li><p>Before Install this plugin you need install zsh and cmake</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/thewtex/tmux-mem-cpu-load.git ~/.tmux/plugins/tmux-mem-cpu-load</span><br><span class="line"><span class="built_in">cd</span> tmux-mem-cpu-load</span><br><span class="line">zsh tmux-mem-cpu-load.plugin.zsh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.tmux.conf file (location at home directory. <code>cd ~/</code>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://github.com/seebi/tmux-colors-solarized/blob/master/tmuxcolors-256.conf</span></span><br><span class="line"><span class="comment"># color</span></span><br><span class="line"><span class="built_in">set</span> -g default-terminal <span class="string">"screen-256color"</span></span><br><span class="line"><span class="built_in">set</span>-option -g status-bg colour235 <span class="comment">#base02</span></span><br><span class="line"><span class="built_in">set</span>-option -g status-fg colour136 <span class="comment">#yellow</span></span><br><span class="line"><span class="built_in">set</span>-option -g status-attr default</span><br><span class="line"><span class="comment"># set window split</span></span><br><span class="line"><span class="built_in">bind</span>-key v split-window -h</span><br><span class="line"><span class="built_in">bind</span>-key b split-window</span><br><span class="line"><span class="comment"># default window title colors</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g window-status-fg colour244 <span class="comment">#base0</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g window-status-bg default</span><br><span class="line"><span class="comment">#set-window-option -g window-status-attr dim</span></span><br><span class="line"><span class="comment"># active window title colors</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g window-status-current-fg colour166 <span class="comment">#orange</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g window-status-current-bg default</span><br><span class="line"><span class="comment">#set-window-option -g window-status-current-attr bright</span></span><br><span class="line"><span class="comment"># pane border</span></span><br><span class="line"><span class="built_in">set</span>-option -g pane-border-fg colour235 <span class="comment">#base02</span></span><br><span class="line"><span class="built_in">set</span>-option -g pane-active-border-fg colour240 <span class="comment">#base01</span></span><br><span class="line"><span class="comment"># message text</span></span><br><span class="line"><span class="built_in">set</span>-option -g message-bg colour235 <span class="comment">#base02</span></span><br><span class="line"><span class="built_in">set</span>-option -g message-fg colour166 <span class="comment">#orange</span></span><br><span class="line"><span class="comment"># pane number display</span></span><br><span class="line"><span class="built_in">set</span>-option -g display-panes-active-colour colour33 <span class="comment">#blue</span></span><br><span class="line"><span class="built_in">set</span>-option -g display-panes-colour colour166 <span class="comment">#orange</span></span><br><span class="line"><span class="comment"># clock</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g clock-mode-colour green <span class="comment">#green</span></span><br><span class="line"><span class="built_in">set</span> -g status-interval 1</span><br><span class="line"><span class="built_in">set</span> -g status-justify centre <span class="comment"># center align window list</span></span><br><span class="line"><span class="built_in">set</span> -g status-left-length 40</span><br><span class="line"><span class="built_in">set</span> -g status-left <span class="string">'#[fg=green]#H #[fg=black]• #[fg=green,bright] #&#123;download_speed&#125;'</span></span><br><span class="line"><span class="built_in">set</span> -g @net_speed_format <span class="string">"%10s %10s"</span></span><br><span class="line"><span class="comment"># C-b is not acceptable -- Vim uses it</span></span><br><span class="line"><span class="built_in">set</span>-option -g prefix C<span class="_">-a</span></span><br><span class="line"><span class="built_in">bind</span>-key C<span class="_">-a</span> last-window</span><br><span class="line"><span class="comment"># Start numbering at 1</span></span><br><span class="line"><span class="built_in">set</span> -g base-index 1</span><br><span class="line"><span class="comment"># Allows for faster key repetition</span></span><br><span class="line"><span class="built_in">set</span> -s escape-time 0</span><br><span class="line"><span class="comment"># Rather than constraining window size to the maximum size of any client </span></span><br><span class="line"><span class="comment"># connected to the *session*, constrain window size to the maximum size of any </span></span><br><span class="line"><span class="comment"># client connected to *that window*. Much more reasonable.</span></span><br><span class="line">setw -g aggressive-resize on</span><br><span class="line"><span class="comment"># Allows us to use C-a a &lt;command&gt; to send commands to a TMUX session inside </span></span><br><span class="line"><span class="comment"># another TMUX session</span></span><br><span class="line"><span class="built_in">bind</span>-key a send-prefix</span><br><span class="line"><span class="comment"># Activity monitoring</span></span><br><span class="line">setw -g monitor-activity on</span><br><span class="line"><span class="built_in">set</span> -g visual-activity on</span><br><span class="line"><span class="comment"># Vi copypaste mode</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g mode-keys vi</span><br><span class="line"><span class="built_in">bind</span>-key -t vi-copy <span class="string">'v'</span> begin-selection</span><br><span class="line"><span class="built_in">bind</span>-key -t vi-copy <span class="string">'y'</span> copy-selection</span><br><span class="line"><span class="comment"># hjkl pane traversal</span></span><br><span class="line"><span class="built_in">bind</span> h select-pane -L</span><br><span class="line"><span class="built_in">bind</span> j select-pane -D</span><br><span class="line"><span class="built_in">bind</span> k select-pane -U</span><br><span class="line"><span class="built_in">bind</span> l select-pane -R</span><br><span class="line"><span class="comment"># set to main-horizontal, 60% height for main pane</span></span><br><span class="line"><span class="built_in">bind</span> m <span class="built_in">set</span>-window-option main-pane-height 60\; select-layout main-horizontal</span><br><span class="line"><span class="built_in">bind</span>-key C <span class="built_in">command</span>-prompt -p <span class="string">"Name of new window: "</span> <span class="string">"new-window -n '%%'"</span></span><br><span class="line"><span class="comment">#clipvoard</span></span><br><span class="line"><span class="comment">#bind-key p save-buffer ~/.tmux-buffer \; run-shell "xsel -i -b &lt;~/.tmux-buffer &amp;&amp; rm ~/.tmux-buffer"</span></span><br><span class="line"><span class="comment"># reload config</span></span><br><span class="line"><span class="built_in">bind</span> r <span class="built_in">source</span>-file ~/.tmux.conf \; display-message <span class="string">"Config reloaded..."</span></span><br><span class="line"><span class="comment"># auto window rename</span></span><br><span class="line"><span class="built_in">set</span>-window-option -g automatic-rename</span><br><span class="line"><span class="comment"># https://github.com/edkolev/dots/blob/master/tmux.conf</span></span><br><span class="line"><span class="comment"># Updates for tmux 1.9's current pane splitting paths.</span></span><br><span class="line"><span class="comment"># from powerline</span></span><br><span class="line">run-shell <span class="string">"tmux set-environment -g TMUX_VERSION_MAJOR <span class="variable">$(tmux -V | cut -d' ' -f2 | cut -d'.' -f1 | sed 's/[^0-9]*//g')</span>"</span></span><br><span class="line">run-shell <span class="string">"tmux set-environment -g TMUX_VERSION_MINOR <span class="variable">$(tmux -V | cut -d' ' -f2 | cut -d'.' -f2 | sed 's/[^0-9]*//g')</span>"</span></span><br><span class="line"><span class="comment"># status bar</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">'\( #&#123;$TMUX_VERSION_MAJOR&#125; -eq 2 -a #&#123;$TMUX_VERSION_MINOR&#125; -lt 2\) -o #&#123;$TMUX_VERSION_MAJOR&#125; -le 1'</span> <span class="string">'set-option -g status-utf8 on'</span></span><br><span class="line"><span class="comment"># rm mouse mode fail</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">'\( #&#123;$TMUX_VERSION_MAJOR&#125; -eq 2 -a #&#123;$TMUX_VERSION_MINOR&#125; -ge 1\) -o #&#123;$TMUX_VERSION_MAJOR&#125; -gt 2'</span> <span class="string">'set -g mouse off'</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">'\( #&#123;$TMUX_VERSION_MAJOR&#125; -eq 2 -a #&#123;$TMUX_VERSION_MINOR&#125; -lt 1\) -o #&#123;$TMUX_VERSION_MAJOR&#125; -le 1'</span> <span class="string">'set -g mode-mouse off'</span></span><br><span class="line"><span class="comment"># fix pane_current_path on new window and splits</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">"#&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -gt 1 -o \( #&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -eq 1 -a #&#123;<span class="variable">$TMUX_VERSION_MINOR</span>&#125; -ge 8 \)"</span> <span class="string">'unbind c; bind c new-window -c "#&#123;pane_current_path&#125;"'</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">"#&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -gt 1 -o \( #&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -eq 1 -a #&#123;<span class="variable">$TMUX_VERSION_MINOR</span>&#125; -ge 8 \)"</span> <span class="string">"unbind '\"'; bind '\"' split-window -v -c '#&#123;pane_current_path&#125;'"</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">"#&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -gt 1 -o \( #&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -eq 1 -a #&#123;<span class="variable">$TMUX_VERSION_MINOR</span>&#125; -ge 8 \)"</span> <span class="string">'unbind v; bind v split-window -h -c "#&#123;pane_current_path&#125;"'</span></span><br><span class="line"><span class="keyword">if</span>-shell <span class="string">"#&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -gt 1 -o \( #&#123;<span class="variable">$TMUX_VERSION_MAJOR</span>&#125; -eq 1 -a #&#123;<span class="variable">$TMUX_VERSION_MINOR</span>&#125; -ge 8 \)"</span> <span class="string">'unbind %; bind % split-window -h -c "#&#123;pane_current_path&#125;"'</span></span><br><span class="line"><span class="comment"># List of plugins</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tpm'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-sensible'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-yank'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-resurrect'</span></span><br><span class="line"><span class="built_in">set</span> -g @resurrect-capture-pane-contents <span class="string">'on'</span></span><br><span class="line"><span class="built_in">set</span> -g @resurrect-strategy-vim <span class="string">'session'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-continuum'</span></span><br><span class="line"><span class="built_in">set</span> -g @continuum-restore <span class="string">'on'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-pain-control'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-prefix-highlight'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-net-speed'</span></span><br><span class="line"><span class="comment">#set -g @plugin 'tmux-plugins/tmux-sidebar'</span></span><br><span class="line"><span class="built_in">set</span> -g @plugin <span class="string">'tmux-plugins/tmux-open'</span></span><br><span class="line"><span class="built_in">set</span> -g status-right <span class="string">"#&#123;prefix_highlight&#125; #(tmux-mem-cpu-load) | %a %Y-%m-%d %H:%M"</span></span><br><span class="line"><span class="built_in">set</span> -g status-right-length 100</span><br><span class="line"><span class="built_in">set</span> -g base-index 1</span><br><span class="line">setw -g pane-base-index 1</span><br><span class="line"><span class="comment"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span></span><br><span class="line">run <span class="string">'~/.tmux/plugins/tpm/tpm'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Install-tmux-plugin"><a href="#Install-tmux-plugin" class="headerlink" title="Install tmux plugin"></a>Install tmux plugin</h3><p>press <code>ctrl + a</code> and <code>I (upper case)</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://oceanpad.github.io/2016/05/24/2016/05/tmux.config/" data-id="clo7yijov003nqu1b3gtp41rr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/24/2016/05/deploy-tomcat-on-linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Deploy Tomcat on Linux
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/23/2016/05/tmux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tmux (Useless)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activator/" rel="tag">Activator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic/" rel="tag">Basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/" rel="tag">Blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/" rel="tag">Books</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/" rel="tag">Command Line</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/" rel="tag">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Scientist/" rel="tag">Data-Scientist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/" rel="tag">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/" rel="tag">Emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Essay/" rel="tag">Essay</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/" rel="tag">GPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/" rel="tag">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ios/" rel="tag">Ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubenetes/" rel="tag">Kubenetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/" rel="tag">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life-Style/" rel="tag">Life Style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Tomcat-Devops/" rel="tag">Linux, Tomcat, Devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Npm/" rel="tag">Npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Playframework/" rel="tag">Playframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postgres/" rel="tag">Postgres</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/" rel="tag">Programming</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TODO/" rel="tag">TODO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualbox/" rel="tag">Virtualbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activator/" style="font-size: 10px;">Activator</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Basic/" style="font-size: 10px;">Basic</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Books/" style="font-size: 12.5px;">Books</a> <a href="/tags/Command-Line/" style="font-size: 10.83px;">Command Line</a> <a href="/tags/Cordova/" style="font-size: 11.67px;">Cordova</a> <a href="/tags/Data-Scientist/" style="font-size: 10px;">Data-Scientist</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Docker/" style="font-size: 10.83px;">Docker</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/Essay/" style="font-size: 19.17px;">Essay</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Git/" style="font-size: 15.83px;">Git</a> <a href="/tags/Gulp/" style="font-size: 11.67px;">Gulp</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ios/" style="font-size: 10px;">Ios</a> <a href="/tags/Javascript/" style="font-size: 14.17px;">Javascript</a> <a href="/tags/Kubenetes/" style="font-size: 10.83px;">Kubenetes</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life-Style/" style="font-size: 10px;">Life Style</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-Tomcat-Devops/" style="font-size: 10px;">Linux, Tomcat, Devops</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 13.33px;">Nodejs</a> <a href="/tags/Npm/" style="font-size: 10px;">Npm</a> <a href="/tags/Playframework/" style="font-size: 10px;">Playframework</a> <a href="/tags/Postgres/" style="font-size: 10px;">Postgres</a> <a href="/tags/Programming/" style="font-size: 18.33px;">Programming</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/React/" style="font-size: 12.5px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shell/" style="font-size: 10.83px;">Shell</a> <a href="/tags/TODO/" style="font-size: 12.5px;">TODO</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tmux/" style="font-size: 11.67px;">Tmux</a> <a href="/tags/Tomcat/" style="font-size: 11.67px;">Tomcat</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 11.67px;">Vim</a> <a href="/tags/Virtualbox/" style="font-size: 10.83px;">Virtualbox</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/27/2023/10/Useful-Javascript-Tricks/">Useful Javascript Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/2023/03/useful-python-tricks/">Useful Python Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/2023/03/useful-shell-tricks/">Useful Shell Tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/2022/05/command-line-tips/">Command Line Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/2022/05/useful-gpu-server-docker-commands/">Useful Gpu Server/docker Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 haiyang<br>
+      Powered by <a href="https://github.com/oceanpad" target="_blank">oceanpad</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
